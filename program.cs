@@ -8,9 +8,8 @@ builder.Services.AddHttpClient();
 var app = builder.Build();
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-// ПРАВИЛЬНЫЙ URL (исправлен!)
 string supabaseUrl = "https://wdqawcpinnrhnxsvpyly.supabase.co/rest/v1";
-string supabaseKey = "sb_publishable_mYg8jJpjkTgVzSGGGPz5PQ_8_PLn..."; // ЗАМЕНИ НА СВОЙ КЛЮЧ!
+string supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkcWF3Y3Bpbm5yaG54c3ZweWx5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5NDE1MDYsImV4cCI6MjEwMzUxNzUwNn0.pMWL644gw2yPbPCyxnRtQdKv18r_FYCWGgsy3Pe_YWY";
 
 // === ЭНДПОИНТЫ ===
 app.MapGet("/api/test", () => Results.Json(new { status = "ok", message = "Server works!" }));
