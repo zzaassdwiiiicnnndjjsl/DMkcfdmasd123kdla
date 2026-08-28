@@ -1,7 +1,15 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    ApplicationName = "StumbleServer"
+});
+
+// ОТКЛЮЧАЕМ ОТСЛЕЖИВАНИЕ ФАЙЛОВ (фикс для Render)
+builder.Environment.ContentRootPath = AppContext.BaseDirectory;
+builder.Host.UseContentRoot(AppContext.BaseDirectory);
+
 builder.Services.AddCors();
 builder.Services.AddHttpClient();
 
